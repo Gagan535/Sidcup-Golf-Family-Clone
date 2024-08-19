@@ -1,0 +1,493 @@
+/*boileplate
+applies on all elements*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat';
+    color:#fff;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    /*background-image: url(https://plus.unsplash.com/premium_photo-1672179307776-4e0dfb926421?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: bottom;*/
+}
+::selection{
+    background-color: #fff;
+    color: #95c119;
+}
+body::-webkit-scrollbar{
+    display: block;
+    width: 5px;
+    background-color: #95c11e;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #fff;
+    border-radius: 50px;
+}
+#nav{
+    height: 130px;
+    width: 100%;
+    /*all items inside nav jo ek ke niche ek hai unko align kr dege flex: turns elements into form of rows & columns*/
+    display: flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap: 50px;
+    /*to move all items to right a alittle*/
+    padding: 0 120px;
+    /*padding: 0 20px; doesnt let div space extend more than og size
+    padding: 100px;*/
+    /*left se 150*/
+    /*nav fixed at top entire time of scrolling*/
+    position: fixed;
+    /* z axis pe koi bhi element aage aa jata hai...video piche nav uppar*/
+    z-index: 999;
+}
+#nav img{
+    height: 4.5vw;
+}
+#nav h4{
+    margin-left: 50px;
+    text-transform: uppercase;
+    /*text ko patla kr diya*/
+    cursor: pointer;
+    font-weight: 500;
+    
+}
+video{
+    height: 100%;
+    width: 100%;
+    /*covers all body*/
+    object-fit: cover;
+    position: fixed;
+    /*VIDEO piche hi rehne wala so*/
+    z-index: -1;
+}
+#main{ 
+    position: relative;
+    /*making video appear faint*/
+    background-color: rgba(0, 0, 0, 0.37);
+    /* 
+    width: 100px;
+    height: 100px;
+    margin creates space outside div
+    margin: 92px 230px;
+    /*top right bottom left
+    TRBL
+    margin: 20px;
+    TB RL
+    margin: 40px 30px;
+    T R B L
+    margin: 10px 20px 30px 40px;
+    
+    padding: 20px;
+    /*padding creates space inside div
+    position: absolute;
+    /*elevates in 3d space seen from above
+    __1__  --2--  ==3==
+              fig 1               fig 2              fig 3                           ==3==
+             --2--                --2--              --2--
+    __1__ -->       ==3== ==>     __1__  ==3==  ==>  __1__
+    in fig 2. 1 moves under 2 but when seen from up we see only 2
+    after making absolute, object can move outside frame or margin
+    but if we dont want object to move outside frame make it position relative
+    background-color: brown;*/
+} 
+#page1{/*first parent ko toh height do fir child ko milegi naa
+    vh=viewport height: screen ki height hai utni*/
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    /*background-color: red;*/
+    /*fex: kiski bhi div ke elements ko rows & columns mei divide krna*/
+    display: flex; 
+    /*auto in row format...make it column*/
+    align-items: center;
+    justify-content: center;
+    /*flex default rows mei lata hai elements ko but hum usse layege column mei using flex direction*/
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+    /*background-color: red;*/
+}
+/*video link at 24:22 yt pseudo elements are used to write something(words) with CSS*/
+#page1 h1{
+    font-size: 7.5vw;
+    font-weight: 900;
+    position: relative;
+}
+/*pseudo elemnt h1 ke pehle content print hoga "i" apan krege print same heading & usko position absolute krke hawa mei utha denge & heading ke jara pehle rakhege like a shadoew*/
+#page1 h1::before{
+    /*jo bhi likhna hai using css*/
+    content: "EAT. DRINK. PLAY.";
+    /*jiske respective mei absolute kr rhe ho usko position relative kr do*/
+    position: absolute;
+    color: #46ab25;
+    top: -5px;
+    left: -5px;
+    -webkit-text-stroke: 1px #3dc119;
+    z-index: -1;
+}
+#page1 h2{
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;  
+}
+#page1 p{
+    font-size: 22px;
+    font-weight: 500;
+    width: 40%;
+}
+#page1 #arrow {
+    height: 250px;
+    width: 250px;
+    background-color: transparent;
+    border: 2px solid #95c11e;
+    position: absolute;
+    display: flex;
+    left: -2%;
+    bottom: 0%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all ease 0.5s;
+}
+#page1 #arrow i {
+    font-size: 50px;
+    font-weight: 100;
+}
+#page1 #arrow:hover {
+    scale: 0.4;
+    background-color: #95c11e;
+}
+#cursor{
+    height: 20px;
+    width: 20px;
+    background-color: rgb(4, 253, 62);
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+    transition: all linear 0.1s;
+}
+#cursor-blur{  
+    height: 500px;
+    width: 500px;
+    background-color: rgba(211, 243, 35, 0.526);
+    border-radius: 50%;
+    position:fixed;
+    /*blur effect*/
+    filter:blur(80px);
+    z-index: 9;
+    transition: all linear 0.4s;
+}
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+/*1 hr one more video link*/
+#scroller{
+    /*background-color: red;
+    background-color: rgba(0, 0, 0, 0.37);*/
+    white-space: nowrap ;
+    /*things r goin out of screen so...in x let it go out of screen but not in y*/
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+}
+/*hide the scroller bar*/
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+#scroller h4:hover{
+    color:#81fb07;
+    -webkit-text-stroke: 2px #81fb07;
+}
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap ;
+    /*whatever name u gave to keyframes*/ 
+    animation-name: scroll;
+    /*to control speed*/
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#scroller h4{
+    /*display in one line*/
+    display: inline-block;
+    font-size: 120px;
+    font-weight: 900;
+    font-family: gilroy; 
+    margin-right: 20px;
+    transition: all linear 0.3s;
+    color: black;
+    /*is a property which brings stroke on any text boundary given on text*/
+    -webkit-text-stroke: 2px #81fb07;
+}
+/*kaha se kaha tak animation*/
+@keyframes scroll{
+    from{
+        transform: translateX(0);  
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+#about-us{
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    /* tb rl */
+    padding: 0 50px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    justify-content: space-around;
+}
+#about-us img{
+    height: 220px;
+    width: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+#about-me{
+    width: 50%;
+    text-align: center;
+}
+#about-me h3{
+    font-size: 54px;
+    font-weight: 800;
+    margin-bottom: 30px; 
+}
+#about-me p{
+    font-size: 20px;
+    line-height: 26px;  
+}
+#cards-container{
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 70px;
+    position: relative;
+    /*elevates object in z axis for this position should be relative*/
+    z-index: 10;
+}
+.card{
+    height: 80%;
+    width: 24%;
+    border-radius: 20px;
+    /*bg img ko ye dena padta hai*/
+    background-size: cover;
+    /*img position*/
+    background-position: center;
+    /*border radiuss is applied*/
+    overflow: hidden ;
+    transition: all ease 0.6s;
+}
+#card1{
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-toptracer-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1); 
+}
+#card2{
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-1024x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1); 
+}
+#card3{
+    background-image: url(https://th.bing.com/th/id/R.e27cba75961b40a685738c3c2de332e2?rik=GM03LrgpdL%2bOMQ&riu=http%3a%2f%2fwww.jessfrankgolf.com%2fwp-content%2fuploads%2f2015%2f01%2fLadies-Lessons-700.jpg&ehk=bN%2b3ZdIfscT0BggD2Lg0QT8mGJ7U6GJ51elnN%2b%2b10mw%3d&risl=&pid=ImgRaw&r=0); 
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #95c119;
+    padding: 30px;
+    padding-top: 50px;
+    /*img visible text hidden*/
+    opacity: 0;
+    transition: all ease 0.6s;
+}
+.overlay h4{
+    color: black;
+    font-size: 40px;
+    /*heading in one line no wrapping to next line
+    white-space: nowrap;*/
+    font-weight: 800;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+.overlay p{
+    color: black;
+    font-size: 18px;
+}
+.card:hover .overlay{
+    opacity: 1; 
+}
+.card:hover{
+    transform: rotate3d(-1,1,0,20deg);
+}
+#green-div{
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to left bottom,hsl(118, 52%, 47%),#5da6c3,#2a5e12);
+    position: relative;
+    z-index: 10;
+}
+#green-div h4{
+    width: 45%;
+    font-size: 27px;
+    line-height: 50px;
+    color: black;
+    text-align: center;
+    font-weight: 800 ;
+    transform: uppercase;
+    
+}
+#green-div img{
+    height: 100%;
+    object-fit: cover;
+    width: 14%;
+}
+#page3{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#page3>p{
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 45px;
+    width: 55%;
+    text-align: center;
+}
+#page3 img{
+    /*position absolute agar de rahe ho toh parent ko position relative dena hoga*/
+    position: absolute;
+    height: 60px;
+}
+#page3 #colon1{
+    left: 17%;
+    top: 23%;
+    transition: all ease 0.5s;
+}
+#page3 #colon2{
+    bottom: 23%;
+    right: 17%;
+    transition: all ease 0.5s;
+}
+#page4{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+}
+.elem{
+    height: 70%;;
+    width: 26%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    background-position: center;
+}
+.elem h2{
+    height: 100%;
+    width: 100%;
+    background-color: #95c119;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: 800;
+    transition: all ease 0.5s;
+    font-size: 2vw;
+    position: absolute;
+    z-index: 10;
+}
+.elem img{
+    height: 150%;
+    width: 100%;
+    object-fit: cover;
+    transition: all ease 0.6s;
+    scale: 1.1;
+}
+.elem:hover h2{
+    color: #fff;
+    background-color: transparent;
+}
+#page4 h1{
+    text-transform: uppercase;
+    font-size: 97px;
+    position: absolute;
+    top: -20%;
+    font-weight: 900;
+    font-family: gilroy;
+    color: #000;
+    -webkit-text-stroke: 2px #fff;
+}
+#footer{
+    height: 40vh;
+    width: 100%;
+    background: linear-gradient(to left bottom, #119f3a 0%, #a3d421 80%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6.5vw;
+    padding: 0 100px;
+    
+}
+#footer > img {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+}
+#f1 img {
+    height: 100px;
+}
+#f1,
+#f2,
+#f3,
+#f4 {
+    width: fit-content;
+    position: relative;
+    z-index: 99;
+    /* background-color: red; */
+}
+#f2 h3 {
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+  
+#f3 h3 {
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+#f4 h4 {
+    font-size: 1vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 8px;
+}

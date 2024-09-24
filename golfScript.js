@@ -64,7 +64,7 @@ gsap.to("#nav",{
 gsap.to("#main",{
     //bahut immediate ho rha hai 
     backgroundColor:"#000",
-    //jara dhire dhire karo
+    //jara dhire dhire   karo
     scrollTrigger:{
         trigger:"#main",
         scroller:"body",
